@@ -5,8 +5,14 @@
 
 const onPlayerMove = (event) => {
   event.preventDefault()
-  console.log(event.target)
-  // $('').text('X')
+  if ($(event.target).text() === '') { // can make into a ternary later on to clean up code?
+    $(event.target).text('X')
+  }
+  // const boardSpot = event.target
+  // console.log(boardSpot)
+  // if (boardSpot === '') {
+  //   $('boardSpot').text('X')
+  // }
 }
 
 module.exports = {
