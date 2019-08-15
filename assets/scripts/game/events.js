@@ -3,16 +3,25 @@
 // const api = require('./api')
 // const ui = require('./ui')
 
+let currentPlayer = 'X'
+
 const onPlayerMove = (event) => {
   event.preventDefault()
-  if ($(event.target).text() === '') { // can make into a ternary later on to clean up code?
-    $(event.target).text('X')
+  if ($(event.target).text() === '') {
+    $(event.target).text(currentPlayer)
+  } else if ($(event.target).text() !== '') {
+    console.log('invalid move')
   }
-  // const boardSpot = event.target
-  // console.log(boardSpot)
-  // if (boardSpot === '') {
-  //   $('boardSpot').text('X')
-  // }
+  changePlayer()
+}
+
+const changePlayer = () => {
+  if (currentPlayer === 'X') {
+    currentPlayer = 'O'
+  } else if (currentPlayer === 'O') {
+    currentPlayer = 'X'
+  }
+  return currentPlayer
 }
 
 module.exports = {
