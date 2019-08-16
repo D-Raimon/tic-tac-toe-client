@@ -8,6 +8,6 @@
 const gameEvents = require('./game/events.js')
 
 $(() => {
-  $('.board').on('click', gameEvents.currentGameBoard)
-  $('.board').on('click', gameEvents.onPlayerMove)
+  $('.board').on('click', gameEvents.isGameOver)
+  $('#new-game').on('click', gameEvents.onNewGame)
 })
