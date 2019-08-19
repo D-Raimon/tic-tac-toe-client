@@ -1,4 +1,4 @@
-curl "https://tic-tac-toe-wdi.herokuapp.com/games/:id" \
+curl "https://tic-tac-toe-wdi.herokuapp.com/games/${ID}" \
   --include \
   --request PATCH \
   --header "Content-Type: application/json" \
