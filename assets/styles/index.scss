@@ -19,3 +19,7 @@ button {
   background-color: $primary;
   color: $font-color;
 }
+
+.signed-in {
+  visibility: hidden;
+}

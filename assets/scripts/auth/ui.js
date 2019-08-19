@@ -20,6 +20,8 @@ const signInSuccess = function (data) {
   $('#message-auth').text('Signed in successfully')
   $('#message-auth').removeClass()
   $('#message-auth').addClass('success')
+  $('.signed-in').css('visibility', 'visible')
+  $('.signed-out').css('visibility', 'hidden')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
@@ -36,6 +38,8 @@ const signOutSuccess = function () {
   $('#message-auth').removeClass()
   $('#message-auth').addClass('success')
   $('form').trigger('reset')
+  $('.signed-in').css('visibility', 'hidden')
+  $('.signed-out').css('visibility', 'visible')
   console.log('signOutSuccess ran and nothing was returned!')
   store.user = null
 }
