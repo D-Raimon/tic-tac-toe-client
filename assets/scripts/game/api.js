@@ -34,14 +34,22 @@ const showGame = (data) => {
   })
 }
 
-const updateGame = (currentGame) => {
+const updateGame = () => {
   return $.ajax({
-    url: config.apiUrl + '/games/' + currentGame.game.id,
+    url: config.apiUrl + '/games/' + store.gameData.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: currentGame
+    data: {
+      game: {
+        cell: {
+          index: store.index,
+          value: store.value
+        },
+        over: store.over
+      }
+    }
   })
 }
 

@@ -3,17 +3,8 @@ const store = require('../store.js')
 const api = require('./api')
 const ui = require('./ui')
 
-let currentPlayer = 'X'
+// let currentPlayer = 'X'
 let gameBoard = ['', '', '', '', '', '', '', '', '']
-const currentBoard = {
-  game: {
-    cell: {
-      index: store.index,
-      value: store.value
-    },
-    over: store.over
-  }
-}
 
 const isGameOver = (event) => {
   if (store.over === true) {
@@ -25,30 +16,30 @@ const isGameOver = (event) => {
 
 const onPlayerMove = (event) => {
   store.index = event.target.id
-  store.value = currentPlayer
+  const currentPlayer = store.value
   if ((gameBoard[store.index] === '') && (($(event.target).text() === ''))) {
     gameBoard.splice(store.index, 1, currentPlayer) // overkill could have just used gameBoard[index] = 'X'
     $(event.target).text(currentPlayer)
     $('#message').text('')
-    console.log(gameBoard)
-    changePlayer()
-    api.updateGame(currentBoard)
-      .then(ui.onGameUpdateSuccess)
-      .catch(ui.onGameUpdateFailure)
   } else if ((gameBoard[store.index] !== '') && ($(event.target).text() !== '')) {
     $('#message').text('That spot has already been played!')
   }
   checkForWin(gameBoard)
+  api.updateGame()
+    .then(ui.onGameUpdateSuccess)
+    .catch(ui.onGameUpdateFailure)
+  console.log(store.index)
+  console.log(store.value)
+  console.log(store.over)
+  changePlayer(currentPlayer)
 }
 
-const changePlayer = () => {
+const changePlayer = (currentPlayer) => {
   if (currentPlayer === 'X') {
-    currentPlayer = 'O'
+    store.value = 'O'
   } else if (currentPlayer === 'O') {
-    currentPlayer = 'X'
+    store.value = 'X'
   }
-  // store.over === false ? $('.current-player').text('Player ' + currentPlayer + ` , it's your turn!`) : $('.current-player').text('Game Over!')
-  return currentPlayer
 }
 
 const checkForWin = (currentBoard) => {
@@ -81,13 +72,13 @@ const checkForWin = (currentBoard) => {
   } else {
     store.over = false
   }
-  store.over === false ? $('.current-player').text('Player ' + currentPlayer + ` , it's your turn!`) : $('.current-player').text('Game Over!')
+  store.over === false ? $('.current-player').text('Player ' + store.value + ` , it's your turn!`) : $('.current-player').text('Game Over!')
 }
 
 const onNewGame = (event) => {
   event.preventDefault()
   gameBoard = ['', '', '', '', '', '', '', '', '']
-  currentPlayer = 'X'
+  store.value = 'X'
   store.over = false
   api.createGame()
     .then(ui.newGameSuccess)

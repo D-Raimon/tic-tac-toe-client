@@ -14,6 +14,7 @@ const newGameSuccess = (data) => {
     // .css('background-color', '#8C0900')
   $('#message').text('')
   $('.current-player').text(`Player X, it's your turn!`)
+  console.log(store.gameData.id)
 }
 
 const newGameFailure = (error) => {
@@ -31,7 +32,7 @@ const getStatsFailure = (error) => {
 }
 
 const onGameUpdateSuccess = (data) => {
-  console.log('onGameUpdateSuccess ran successfully: ' + data.games.cells)
+  console.log('onGameUpdateSuccess ran successfully: ' + store.gameData.cells)
 }
 
 const onGameUpdateFailure = (error) => {
