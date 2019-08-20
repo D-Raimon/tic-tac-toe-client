@@ -7,12 +7,20 @@ $font-color: #fff;
 
 .box {
   align-items: center;
-  background-color: $primary;
-  border: 1px solid $white;
-  color: $font-color;
+  background-color: $white;
+  border: 3px solid $black;
+  color: $primary;
   display: flex;
-  height: 80px;
+  font-size: 30px;
+  height: 100px;
   justify-content: center;
+}
+
+.board {
+  background-color: $primary;
+  border: 2px solid $white;
+  color: $font-color;
+  padding-bottom: 10px;
 }
 
 button {

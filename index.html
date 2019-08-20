@@ -59,37 +59,36 @@
         </section>
       </header>
 
-      <section class="signed-in">
+      <section class="signed-in container justify-content-center">
         <h1>#Tic/Tac/Toe!</h1>
+        <section class="box">
+         <button id="new-game">New Game!</button>
+         <button id="request-stats">Get Stats!</button>
+         <div class="player-stats"></div>
+       </section>
         <main class="game-start">
           <hr>
-          <div class="current-player">Player X, it's your turn!</div>
+          <div class="current-player row box">Player X, it's your turn!</div>
           <hr>
-          <div id="message"></div>
+          <div id="message" class="row box"></div>
           <hr>
           <div class="row">
-           <div id=0 class="board col-3 box alt-color"></div>
-           <div id=1 class="board col-3 box alt-color"></div>
-           <div id=2 class="board col-3 box alt-color"></div>
+           <div id=0 class="board col-4 box alt-color"></div>
+           <div id=1 class="board col-4 box alt-color"></div>
+           <div id=2 class="board col-4 box alt-color"></div>
          </div>
          <div class="row">
-           <div id=3 class="board col-3 box alt-color"></div>
-           <div id=4 class="board col-3 box alt-color"></div>
-           <div id=5 class="board col-3 box alt-color"></div>
+           <div id=3 class="board col-4 box alt-color"></div>
+           <div id=4 class="board col-4 box alt-color"></div>
+           <div id=5 class="board col-4 box alt-color"></div>
          </div>
          <div class="row">
-           <div id=6 class="board col-3 box alt-color"></div>
-           <div id=7 class="board col-3 box alt-color"></div>
-           <div id=8 class="board col-3 box alt-color"></div>
+           <div id=6 class="board col-4 box alt-color"></div>
+           <div id=7 class="board col-4 box alt-color"></div>
+           <div id=8 class="board col-4 box alt-color"></div>
           </div>
+          <hr>
         </main>
-           <section>
-            <button id="new-game">New Game!</button>
-          </section>
-        <section>
-          <div class="player-stats"></div>
-          <button id="request-stats">Get Stats!</button>
-        </section>
       </section>
 
     </body>
