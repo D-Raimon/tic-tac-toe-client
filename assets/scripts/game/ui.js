@@ -1,20 +1,23 @@
 'use strict'
 
 const store = require('../store.js')
-// const events = require('./events.js')
 
 const checkWinSuccess = () => {
   $('#message').text('Player ' + store.value + ' Won!')
+  $('.current-player').text('Game Over!')
+}
+
+const checkTieSuccess = () => {
+  $('#message').text(`It's a tie!`)
+  $('.current-player').text('Game Over!')
 }
 
 const newGameSuccess = (data) => {
   store.gameData = data.game
-  $('.board')
-    .text('')
-    // .css('background-color', '#8C0900')
+  $('.game-start').css('visibility', 'visible')
+  $('.board').text('')
   $('#message').text('')
   $('.current-player').text(`Player X, it's your turn!`)
-  console.log(store.gameData.id)
 }
 
 const newGameFailure = (error) => {
@@ -31,8 +34,8 @@ const getStatsFailure = (error) => {
   console.error('getStatsFailure ran. Error is :', error)
 }
 
-const onGameUpdateSuccess = (data) => {
-  console.log('onGameUpdateSuccess ran successfully: ' + store.gameData.cells)
+const onGameUpdateSuccess = (store) => {
+  return ('onGameUpdateSuccess ran!')
 }
 
 const onGameUpdateFailure = (error) => {
@@ -43,10 +46,9 @@ module.exports = {
   newGameSuccess,
   newGameFailure,
   checkWinSuccess,
+  checkTieSuccess,
   getStatsSuccess,
   getStatsFailure,
   onGameUpdateSuccess,
   onGameUpdateFailure
-  // checkWinFailure
-
 }
