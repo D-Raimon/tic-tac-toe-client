@@ -6,7 +6,6 @@ const signUpSuccess = function (data) {
   $('#message-auth').text('Signed up successfully')
   $('#message-auth').removeClass()
   $('#message-auth').addClass('success')
-  console.log('signUpSuccess ran. Data is :', data)
 }
 
 const signUpFailure = function (error) {
@@ -22,7 +21,6 @@ const signInSuccess = function (data) {
   $('#message-auth').addClass('success')
   $('.signed-in').css('visibility', 'visible')
   $('.signed-out').css('visibility', 'hidden')
-  console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
 
@@ -40,7 +38,7 @@ const signOutSuccess = function () {
   $('form').trigger('reset')
   $('.signed-in').css('visibility', 'hidden')
   $('.signed-out').css('visibility', 'visible')
-  console.log('signOutSuccess ran and nothing was returned!')
+  $('.game-start').css('visibility', 'hidden')
   store.user = null
 }
 
@@ -55,7 +53,6 @@ const changePasswordSuccess = function () {
   $('#message-auth').text('Changed password successfully')
   $('#message-auth').removeClass()
   $('#message-auth').addClass('success')
-  console.log('changePasswordSuccess ran and nothing was returned!')
 }
 
 const changePasswordFailure = function (error) {
