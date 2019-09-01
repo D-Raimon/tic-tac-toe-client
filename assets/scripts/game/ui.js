@@ -22,16 +22,16 @@ const newGameSuccess = (data) => {
 
 const newGameFailure = (error) => {
   $('#message').text('Failure to create new game.')
-  console.error('newGameFailure ran. Error is :', error)
+  return error
 }
 
 const getStatsSuccess = (data) => {
-  $('.player-stats').text(`You've played ` + data.games.length + ` games!`)
+  $('.player-stats').text(`You've played ${data.games.length} games!`)
 }
 
 const getStatsFailure = (error) => {
   $('.player-stats').text('Failure to get player stats.')
-  console.error('getStatsFailure ran. Error is :', error)
+  return error
 }
 
 const onGameUpdateSuccess = (store) => {
@@ -39,7 +39,7 @@ const onGameUpdateSuccess = (store) => {
 }
 
 const onGameUpdateFailure = (error) => {
-  console.error('onGameUpdateFailure ran. Error is :', error)
+  return error
 }
 
 module.exports = {

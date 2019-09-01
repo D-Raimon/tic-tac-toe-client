@@ -3,6 +3,8 @@
 const gameEvents = require('./game/events.js')
 const authEvents = require('./auth/events.js')
 
+// .addClass(d-none) to hide the block thats taking up space
+
 $(() => {
   $('.board').on('click', gameEvents.isGameOver)
   $('#new-game').on('click', gameEvents.onNewGame)

@@ -3,16 +3,17 @@
 const store = require('../store.js')
 
 const signUpSuccess = function (data) {
-  $('#message-auth').text('Signed up successfully')
+  $('#message-auth').text('Signed up successfully!')
   $('#message-auth').removeClass()
   $('#message-auth').addClass('success')
+  $('#sign-up').trigger('reset')
 }
 
 const signUpFailure = function (error) {
-  $('#message-auth').text('Error on sign up')
+  $('#message-auth').text('Error on sign up.')
   $('#message-auth').removeClass()
   $('#message-auth').addClass('failure')
-  console.error('signUpFailure ran. Error is :', error)
+  return error
 }
 
 const signInSuccess = function (data) {
@@ -28,11 +29,11 @@ const signInFailure = function (error) {
   $('#message-auth').text('Error on sign in')
   $('#message-auth').removeClass()
   $('#message-auth').addClass('failure')
-  console.error('signInFailure ran. Error is :', error)
+  return error
 }
 
 const signOutSuccess = function () {
-  $('#message-auth').text('Signed out successfully')
+  $('#message-auth').text('Signed out successfully!')
   $('#message-auth').removeClass()
   $('#message-auth').addClass('success')
   $('form').trigger('reset')
@@ -43,23 +44,24 @@ const signOutSuccess = function () {
 }
 
 const signOutFailure = function (error) {
-  $('#message-auth').text('Error on sign out')
+  $('#message-auth').text('Error on sign out.')
   $('#message-auth').removeClass()
   $('#message-auth').addClass('failure')
-  console.error('signOutFailure ran. Error is :', error)
+  return error
 }
 
 const changePasswordSuccess = function () {
-  $('#message-auth').text('Changed password successfully')
+  $('#message-auth').text('Changed password successfully!')
   $('#message-auth').removeClass()
   $('#message-auth').addClass('success')
+  $('#change-password').trigger('reset')
 }
 
 const changePasswordFailure = function (error) {
-  $('#message-auth').text('Error on change password')
+  $('#message-auth').text('Error on change password.')
   $('#message-auth').removeClass()
   $('#message-auth').addClass('failure')
-  console.error('changePasswordFailure ran. Error is :', error)
+  return error
 }
 
 module.exports = {
