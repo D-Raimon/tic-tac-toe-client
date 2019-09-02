@@ -18,6 +18,7 @@ const newGameSuccess = (data) => {
   $('.board').text('')
   $('#message').text('')
   $('.current-player').text(`Player X, it's your turn!`)
+  $('.player-stats').text('')
 }
 
 const newGameFailure = (error) => {

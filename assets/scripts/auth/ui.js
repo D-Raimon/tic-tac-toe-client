@@ -40,6 +40,7 @@ const signOutSuccess = function () {
   $('.signed-in').css('visibility', 'hidden')
   $('.signed-out').css('visibility', 'visible')
   $('.game-start').css('visibility', 'hidden')
+  $('.player-stats').text('')
   store.user = null
 }
 
